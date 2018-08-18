@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2047
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "세트 개수 변환기", "세트 개수 변환기\세트 개수 변환기.csproj", "{CCB9601C-F877-4EB6-A67F-CEA21A1C534A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CCB9601C-F877-4EB6-A67F-CEA21A1C534A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCB9601C-F877-4EB6-A67F-CEA21A1C534A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCB9601C-F877-4EB6-A67F-CEA21A1C534A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCB9601C-F877-4EB6-A67F-CEA21A1C534A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1117E364-8F71-498B-A332-C22D8AEE92A5}
+	EndGlobalSection
+EndGlobal
