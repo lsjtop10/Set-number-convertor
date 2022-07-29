@@ -23,59 +23,69 @@ namespace 세트_개수_변환기
         public MainWindow()
         {
             InitializeComponent();
-            SetOffset.Text = 64.ToString();
+            SetUnitNum.Text = 64.ToString();
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            try
-            {
-                int settes;
-                if (!int.TryParse(CurrentSettes.Text, out settes))
-                {
-                    settes = 0;
-                }
-
-                int offSet;
-                if (!int.TryParse(SetOffset.Text, out offSet))
-                {
-                    offSet = 0;
-                }
-
-                int RestVal;
-                if(!int.TryParse(CurrentRest.Text, out RestVal))
-                {
-                    RestVal = 0;
-                }
-
-
-                CurrentRaw.Text = ((settes * offSet) + RestVal).ToString();
-            }
-            catch { };
-
+            if(((TextBox)sender).IsFocused)
+                TextBoxUserInput(sender,e);
         }
 
-        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
+        private void TextBoxUserInput(object sender, TextChangedEventArgs e)
         {
+            int unitNumber = 0;
+            int settes = 0;
+            int rawVal = 0;
+            int remainder = 0;
+
             try
             {
-                int rawVal;
-                if(!int.TryParse(CurrentRaw.Text, out rawVal))
+
+                if ((TextBox)sender == CurrentRaw)
                 {
-                    rawVal = 0;
+                    if (!int.TryParse(CurrentRaw.Text, out rawVal) && CurrentRaw.Text == "")
+                    {
+                        return;
+                    }
+
+                    if (!int.TryParse(SetUnitNum.Text, out unitNumber))
+                    {
+                        return;
+                    }
+
+                    CurrentSettes.Text = (rawVal / unitNumber).ToString();
+                    CurrentRest.Text = (rawVal % unitNumber).ToString();
+
                 }
 
-                int offSet;
-                if(!int.TryParse(SetOffset.Text, out offSet))
+
+                if ((TextBox)sender == CurrentSettes || (TextBox)sender == CurrentRest)
                 {
-                    offSet = 0;
+                    if (!int.TryParse(CurrentSettes.Text, out settes) && CurrentSettes.Text == "")
+                    {
+                        return;
+
+                    }
+
+
+                    if (!int.TryParse(SetUnitNum.Text, out unitNumber))
+                    {
+                        return;
+                    }
+
+
+                    if (!int.TryParse(CurrentRest.Text, out remainder))
+                    {
+                        return;
+                    }
+
+
+                    CurrentRaw.Text = ((settes * unitNumber) + remainder).ToString();
                 }
 
-                CurrentSettes.Text = (rawVal / offSet).ToString();
-                CurrentRest.Text = (rawVal % offSet).ToString();
             }
             catch { };
-
 
         }
     }
